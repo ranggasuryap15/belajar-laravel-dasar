@@ -5,7 +5,7 @@ namespace App\Data;
 class Bar
 {
     // ini disebut Dependency Injection
-    private Foo $foo; // class bar sangat bergantung atau depend ke kelas Foo (Bar depends-on Foo)
+    public Foo $foo; // class bar sangat bergantung atau depend ke kelas Foo (Bar depends-on Foo)
 
     public function __construct(Foo $foo)
     {
