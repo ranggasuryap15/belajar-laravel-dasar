@@ -7,8 +7,9 @@ use App\Data\Foo;
 use App\Services\HelloService;
 use App\Services\HelloServiceIndonesia;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
-class FooBarServiceProvider extends ServiceProvider
+class FooBarServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     // ini untuk kasus yang sederhana saja, kalo kompleks maka tidak bisa gunakan yang ini.
     public array $singleton = [
@@ -42,5 +43,10 @@ class FooBarServiceProvider extends ServiceProvider
     {
         // disini kita bisa melakukan hal apapun yang diperlukan setelah proses registrasi dependency selesai
 
+    }
+
+    public function provides()
+    {
+        return [HelloService::class, HelloServiceIndonesia::class];
     }
 }
