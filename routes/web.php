@@ -70,6 +70,14 @@ Route::get('/produk-redirect/{id}', function($id) {
     return redirect()->route('product.detail', ['id' => $id]);
 });
 
-Route::get('/controller/hello/request', 'HeolloController@request');
+Route::get('/controller/hello/request', 'HelloController@request');
 
-Route::get('/controller/hello/{name}', 'HeolloController@hello');
+Route::get('/controller/hello/{name}', 'HelloController@hello');
+
+// request input
+Route::get('/input/hello', 'InputController@hello');
+
+Route::post('/input/hello', 'InputController@hello');
+
+Route::get('/input/hello/first', 'InputController@helloFirstName');
+
