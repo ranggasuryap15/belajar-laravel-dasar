@@ -51,5 +51,14 @@ class RoutingTest extends TestCase
     public function testNamedRoute()
     {
         $this->get('produk/12345')->assertSeeText('/produk/12345');
-        $this->get('produk-redirect/12345')->assertRedirect('/produk/12345');
+        $this->get('produk-redirect/12345')->assertRedirect('/products/12345');
     }
+
+    public function testRequest()
+    {
+        $this->get('/controller/hello/request', ['Accept'=> 'plain/text'])
+            ->assertSeeText('/controller/hello/request')
+            ->assertSeeText('GET')
+            ->assertSeeText('plain/text');
+    }
+}
