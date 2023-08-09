@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::get('/pzn', function(){
     return "Programmer Zaman Now";
 });
+
+// route view
+Route::view('/hello', 'hello', ['name' => 'Rangga']);
+Route::get('/hello-again', function() {
+    return view('hello', ['name' => 'Rangga']);
+});;
