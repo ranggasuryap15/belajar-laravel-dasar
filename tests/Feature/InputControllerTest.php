@@ -34,14 +34,15 @@ class InputControllerTest extends TestCase
 
     public function testFilterExcept()
     {
-        $this->post('/input/filter/except', ['username' => 'rangga', 'password' => 'rahasia', 'admin' => 'true'])
+        $this->post('/input/filter/expcept', ['username' => 'rangga', 'password' => 'rahasia', 'admin' => 'true'])
             ->assertSeeText('rangga')->assertSeeText('rahasia')
             ->assertDontSeeText('admin');
     }
 
-    public function testFilterMerge()
+    public function testFilterMerge(Request $request)
     {
-        $this->post('/input/filter/merge', ['username' => 'rangga', 'password' => 'rahasia', 'admin' => 'true'])->assertSeeText('rangga')->assertSeeText('rahasia')
+        $this->post('/input/filter/merge', ['username' => 'rangga', 'password' => 'rahasia', 'admin' => 'true'])
+        ->assertSeeText('rangga')->assertSeeText('rahasia')
         ->assertSeeText('admin')->assertSeeText('false');
     }
 }

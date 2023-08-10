@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ResponseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,3 +89,9 @@ Route::post('/input/hello/array', 'InputController@arrayInput');
 Route::post('/input/filter/merge', 'InputController@filterMerge');
 
 Route::post('/file/upload', 'FileController@upload');
+
+// response
+Route::get('/response/hello', [ResponseController::class, 'response']);
+
+Route::get('/response/header', [ResponseController::class, 'header']);
+Route::get('/response/json', [ResponseController::class, 'responseJson']);
