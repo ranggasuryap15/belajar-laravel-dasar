@@ -86,3 +86,5 @@ Route::post('/input/hello/input', 'InputController@helloInput');
 Route::post('/input/hello/array', 'InputController@arrayInput');
 
 Route::post('/input/filter/merge', 'InputController@filterMerge');
+
+Route::post('/file/upload', 'FileController@upload');
