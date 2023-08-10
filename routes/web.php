@@ -81,3 +81,8 @@ Route::post('/input/hello', 'InputController@hello');
 
 Route::get('/input/hello/first', 'InputController@helloFirstName');
 
+Route::post('/input/hello/input', 'InputController@helloInput');
+
+Route::post('/input/hello/array', 'InputController@arrayInput');
+
+Route::post('/input/filter/merge', 'InputController@filterMerge');
