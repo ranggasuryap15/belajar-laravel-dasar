@@ -17,10 +17,7 @@ class ResponseControllerTest extends TestCase
     public function testHeader()
     {
         $this->get('response/json')->assertStatus(200)
-        tion testDownload()
-    {
-        $this->
-    }    ->assertSeeText('Rangga')
+            ->assertSeeText('Rangga')
             ->assertSeeText('Prayoga')
             ->assertHeader('Content-Type', 'application/json')
             ->assertHeader('Author', 'Generus Koding')
