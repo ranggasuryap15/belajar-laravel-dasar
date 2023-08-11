@@ -2,10 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Tests\TestCase;
 
 class CookieControllerTest extends TestCase
@@ -19,12 +15,14 @@ class CookieControllerTest extends TestCase
             // tidak perlu menggunakan decrypt lagi, karena sudah otomatis.
     }
 
-    public function getCookie(Request $request): JsonResponse
+    public function testGetCookie()
     {
-        return response()
-            ->json([
-                'userId' => $request->cookie('user-id', 'guest'),
-                'isMember' => $request->cookie('is-member', 'false')
+        $this->withCookie('User-Id', 'Rangga')
+            ->withCookie('Is-Member', 'true')
+            ->get('/cookie/get')
+            ->assertJson([
+                'userId' => 'Rangga',
+                'isMember' => 'true'
             ]);
     }
 }
