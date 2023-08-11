@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CookieController;
 use App\Http\Controllers\ResponseController;
 use Illuminate\Support\Facades\Route;
 
@@ -99,3 +100,6 @@ Route::get('/response/json', [ResponseController::class, 'responseJson']);
 Route::get('/response/view', [ResponseController::class, 'responseView']);
 Route::get('/response/type/file', [ResponseController::class, 'responseFile']);
 Route::get('/response/type/download', [ResponseController::class, 'responseDownload']);
+
+// Cookie
+Route::get('/cookie/set', [CookieController::class, 'createCookie']);
