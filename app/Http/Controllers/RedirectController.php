@@ -26,4 +26,9 @@ class RedirectController extends Controller
     {
         return redirect()->route('redirect-hello', ['name' => 'Rangga']);
     }
+
+    public function redirectAction(): RedirectResponse
+    {
+        return redirect()->action([RedirectAction::class, 'redirectHello'], ['name' => 'Rangga']);
+    }
 }
