@@ -3,7 +3,6 @@
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
-use App\Http\Middleware\ContohMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -91,7 +90,7 @@ Route::post('/input/hello/array', 'InputController@arrayInput');
 
 Route::post('/input/filter/merge', 'InputController@filterMerge');
 
-Route::post('/file/upload', 'FileController@upload');
+Route::post('/file/upload', 'FileController@upload')->withoutMiddleware([App\Http\Middleware\VerifyCsrfToken::class]);
 
 // response
 Route::get('/response/hello', [ResponseController::class, 'response']);
