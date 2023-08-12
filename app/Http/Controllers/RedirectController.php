@@ -31,4 +31,9 @@ class RedirectController extends Controller
     {
         return redirect()->action([RedirectAction::class, 'redirectHello'], ['name' => 'Rangga']);
     }
+
+    public function redirectAway(): RedirectResponse
+    {
+        return redirect()->away('https://google.com');
+    }
 }

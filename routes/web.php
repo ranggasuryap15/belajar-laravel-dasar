@@ -113,3 +113,4 @@ Route::get('/redirect/to', [RedirectController::class,'redirectTo']);
 Route::get('/redirect/name', [RedirectController::class, 'redirectName']);
 Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello'])->name('redirect-hello');
 Route::get('/redirect/action', [RedirectController::class, 'redirectAction']);
+Route::get('/redirect/google', [RedirectController::class, 'redirectAway']);

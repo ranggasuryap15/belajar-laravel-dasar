@@ -19,4 +19,16 @@ class RedirectControllerTest extends TestCase
         $this->get('/redirect/name')
             ->assertRedirect('/redirect/name/Rangga');
     }
+
+    public function testRedirectAction()
+    {
+        $this->get('/redirect/action')
+            ->assertRedirect('/redirect/name/Rangga');
+    }
+
+    public function testRedirectAway()
+    {
+        $this->get('/redirect/away')
+            ->assertRedirect('https://google.com');
+    }
 }
