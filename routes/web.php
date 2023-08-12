@@ -3,6 +3,7 @@
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -125,3 +126,7 @@ Route::get('/middleware/group', function() {
 Route::get('/middleware/api', function() {
     return 'OK';
 })->middleware(['sample:PZN,401']);
+
+// test csrf
+Route::get('/form', [FormController::class, 'form']);
+Route::post('/form', [FormController::class, 'submitForm']);
