@@ -123,3 +123,6 @@ Route::get('/middleware/api', function() {
 Route::get('/middleware/group', function() {
     return 'GROUP';
 })->middleware(['pzn']);
+Route::get('/middleware/api', function() {
+    return 'OK';
+})->middleware(['sample:PZN,401']);
