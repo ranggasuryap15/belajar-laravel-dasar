@@ -3,6 +3,7 @@
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Middleware\ContohMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -114,3 +115,8 @@ Route::get('/redirect/name', [RedirectController::class, 'redirectName']);
 Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello'])->name('redirect-hello');
 Route::get('/redirect/action', [RedirectController::class, 'redirectAction']);
 Route::get('/redirect/google', [RedirectController::class, 'redirectAway']);
+
+// Middleware
+Route::get('/middleware/api', function() {
+    return 'OK';
+})->middleware(['contoh']);
