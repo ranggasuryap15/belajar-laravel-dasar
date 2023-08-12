@@ -19,12 +19,11 @@ class RedirectController extends Controller
 
     public function redirectHello(string $name): string
     {
-        return 'Hello $name';
+        return 'Hello '. $name;
     }
 
     public function redirectName(): RedirectResponse
     {
         return redirect()->route('redirect-hello', ['name' => 'Rangga']);
     }
-
 }

@@ -13,4 +13,10 @@ class RedirectControllerTest extends TestCase
         $this->get('/redirect/from')
             ->assertRedirect('/redirect/to');
     }
+
+    public function testRedirectNamedRoute()
+    {
+        $this->get('/redirect/name')
+            ->assertRedirect('/redirect/name/Rangga');
+    }
 }
