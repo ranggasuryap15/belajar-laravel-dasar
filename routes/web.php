@@ -110,3 +110,5 @@ Route::get('/cookie/clear', [CookieController::class, 'clearCookie']);
 // redirect
 Route::get('/redirect/from', [RedirectController::class, 'redirectFrom']);
 Route::get('/redirect/to', [RedirectController::class,'redirectTo']);
+Route::get('/redirect/name', [RedirectController::class, 'redirectName']);
+Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello'])->name('redirect-hello');
