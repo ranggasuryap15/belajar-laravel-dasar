@@ -5,6 +5,7 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,6 +114,13 @@ Route::get('/redirect/from', [RedirectController::class, 'redirectFrom']);
 Route::get('/redirect/to', [RedirectController::class,'redirectTo']);
 Route::get('/redirect/name', [RedirectController::class, 'redirectName']);
 Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello'])->name('redirect-hello');
+
+Route::get('/redirect/named', function(){
+    // return route('redirect-hello', ['name' => 'Rangga']);
+    // return url()->route('redirect-hello', ['name' => 'Rangga']);
+    return URL::route('redirect-hello', ['name' => 'Rangga']);
+});
+
 Route::get('/redirect/action', [RedirectController::class, 'redirectAction']);
 Route::get('/redirect/google', [RedirectController::class, 'redirectAway']);
 
@@ -127,10 +135,21 @@ Route::get('/middleware/api', function() {
     return 'OK';
 })->middleware(['sample:PZN,401']);
 
+
+Route::get('/url/action', function() {
+    // return action([FormController::class, 'form'], []);
+    // return url()->action([FormController::class, 'form'], []);
+    return URL::action([FormController::class, 'form'], []);
+});
+
 // test csrf
 Route::get('/form', [FormController::class, 'form']);
 Route::post('/form', [FormController::class, 'submitForm']);
 
 Route::get('/pzn', function(){
     return "Programmer Zaman Now";
+});
+
+Route::get('/url/current', function() {
+    return URL::full();
 });
